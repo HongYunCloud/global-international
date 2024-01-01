@@ -107,12 +107,11 @@ public final class GiCore {
           } else if (value instanceof Boolean) {
             return TranslationArgument.component(Component.text(value.toString()));
           } else if (value instanceof BuildableComponent) {
-            return TranslationArgument.component(componentImpl(context, (BuildableComponent) value));
+            return TranslationArgument.component(componentImpl(context, (BuildableComponent<?, ?>) value));
           } else {
             return it;
           }
-        })
-        .collect(Collectors.toList());
+        }).collect(Collectors.toList());
 
     builder.arguments(mappedArguments);
   }
@@ -130,7 +129,7 @@ public final class GiCore {
       HoverEvent.Action<?> action = component.hoverEvent().action();
       Object value = component.hoverEvent().value();
       if (action == HoverEvent.Action.SHOW_TEXT && value instanceof BuildableComponent) {
-        builder.hoverEvent(componentImpl(context, (BuildableComponent) value));
+        builder.hoverEvent(componentImpl(context, (BuildableComponent<?, ?>) value));
       } else if (action == HoverEvent.Action.SHOW_ENTITY) {
         builder.hoverEvent(null);
       }
