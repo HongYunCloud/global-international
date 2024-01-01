@@ -30,9 +30,8 @@ public final class GiCore {
     this(Arrays.asList(sources));
   }
 
-  public @Nullable TranslateFormat getFormat(final @NotNull String rawLocal, final @NotNull String rawKey) {
+  public @Nullable TranslateFormat getFormat(final @NotNull String rawLocal, final @NotNull String key) {
     String locale = rawLocal.toLowerCase(Locale.ROOT);
-    String key = rawKey.toLowerCase(Locale.ROOT);
 
     Map<String, Optional<TranslateFormat>> formatMap = map.get(locale);
     if (formatMap == null) {
