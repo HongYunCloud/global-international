@@ -102,6 +102,9 @@ public final class GiCoreOutboundNettyHandler extends ChannelDuplexHandler imple
 
       Wrapper wrapper = new Wrapper(ctx, msg, transformedBuf);
       IHandler handler = handlers[currentState].getOrDefault(packetId, FallbackHandler.INSTANCE);
+      if (handler != FallbackHandler.INSTANCE) {
+        logger.debug("Handling packet {} with {}", packetId, handler);
+      }
       try {
         handler.handle(wrapper);
         ctx.write(transformedBuf.retain(), promise);
