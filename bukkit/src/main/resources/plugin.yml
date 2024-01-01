@@ -1,0 +1,19 @@
+name: global-international
+version: 1.0-SNAPSHOT
+main: io.github.hongyuncloud.gi.bukkit.BukkitGlobalInternationalPlugin
+
+authors:
+  - HongYunCloud
+
+api-version: '1.13'
+folia-supported: true
+
+depend: [ ]
+softdepend:
+  - ProtocolLib
+  - ProxyPipe
+  - SpigotLib
+  - SkinRestorer
+
+  - ProtocolSupport
+  - PacketListenerApi
