@@ -57,6 +57,11 @@ allprojects {
         publications {
             create<MavenPublication>("mavenJar") {
                 from(components["java"])
+
+                project.path
+                    .takeIf { it != ":" }
+                    ?.replace(':', '-')
+                    ?.let { artifactId = it }
             }
         }
     }
