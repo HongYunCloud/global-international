@@ -65,6 +65,10 @@ dependencies {
     }
 }
 
+tasks.shadowJar {
+    enabled = false
+}
+
 tasks.create<BuildMappingsTask>("build-mappings") {
     ankhInvokePackage = "io.github.hongyuncloud.gi.ankhinvoke"
 
@@ -102,7 +106,7 @@ tasks.create<ShadowJar>("singleShadowJar") {
     dependsOn(tasks.jar)
 
     configurations = listOf(project.configurations["singleShadow"])
-    archiveClassifier.set("all")
+    archiveClassifier.set("single")
     from(tasks.jar)
 
     mergeServiceFiles()
