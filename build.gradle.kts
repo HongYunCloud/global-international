@@ -61,7 +61,7 @@ allprojects {
                 project.path
                     .takeIf { it != ":" }
                     ?.replace(':', '-')
-                    ?.let { artifactId = it }
+                    ?.let { artifactId = rootProject.name + it }
             }
         }
     }
