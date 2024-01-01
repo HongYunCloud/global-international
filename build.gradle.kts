@@ -43,7 +43,7 @@ allprojects {
     publishing {
         repositories {
             if (System.getenv("CI").toBoolean()) {
-                maven("https://r.bgp.ink/%E7%BA%A2%E4%BA%91cloud/maven/") {
+                maven("https://r.bgp.ink/maven/") {
                     credentials {
                         username = System.getenv("R_BGP_INK_USERNAME")
                         password = System.getenv("R_BGP_INK_PASSWORD")
